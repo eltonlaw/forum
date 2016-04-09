@@ -1,5 +1,5 @@
-var http = require ('http');
-var fs = require ('fs');
+var http = require('http');
+var fs = require('fs');
 
 //Send 404
 function send404Response (response){
@@ -12,7 +12,7 @@ function send404Response (response){
 function onRequest (request, response) {
     if (request.method == 'GET' && request.url == "/") {
         response.writeHead(200, {"Content-Type": "text/html"});
-        fs.createReadStream("./index.html").pipe(response);
+        fs.createReadStream("index.html").pipe(response);
     } else {
         send404Response(response);
     }
@@ -25,4 +25,6 @@ function onRequest (request, response) {
 
 http.createServer(onRequest).listen(8888);
 console.log('server is now running...');
+
+
 
