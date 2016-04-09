@@ -1,5 +1,15 @@
 var http = require ('http');
 var fs = require ('fs');
+var qs = require ('querystring');
+
+var server = http.createServer(function (request, response) {
+    if (request.method == 'GET') {
+        onRequest(response);
+    } else if (request.method == 'POST') {
+        onSubmit(request, response);
+    }
+});
+
 
 //Send 404
 function send404Response (response){
@@ -9,20 +19,26 @@ function send404Response (response){
 }
 
 //Send user to Homepage
-function onRequest (request, response) {
-    if (request.method == 'GET' && request.url == "/") {
+function onRequest (response) {
         response.writeHead(200, {"Content-Type": "text/html"});
         fs.createReadStream("./index.html").pipe(response);
-    } else {
-        send404Response(response);
     }
-}
 
 //Make another function to handle 'POST' (when user inputs to form and it gets posted
 //on to the forum.
+function onSubmit(request, response) {
+        var body = '';
 
+        request.on('data', function(data){
+        body += data;
+        });
 
+        request.on('end', function(){
+        var post= qs.parse(body);
+            
+        });
+    }
 
-http.createServer(onRequest).listen(8888);
+server.listen(8888);
 console.log('server is now running...');
 
