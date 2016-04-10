@@ -24,8 +24,8 @@ function onRequest (response) {
         fs.createReadStream("./index.html").pipe(response);
     }
 
-//Make another function to handle 'POST' (when user inputs to form and it gets posted
-//on to the forum.
+
+//onSubmit takes POST data and writes it into 'forumContents.txt'
 function onSubmit(request, response) {
         var body = '';
 
@@ -35,9 +35,16 @@ function onSubmit(request, response) {
 
         request.on('end', function(){
         var post= qs.parse(body);
-            
+        fs.appendFile('forumContents.txt', post.name + " : " + post.comment + '\n', 'UTF-8', {'flags':'a+'});
+        console.log(post.name);
+        console.log(post.comment);
+            response.end();
         });
     }
+
+
+//Figure out how to make the front end constantly display the contents of 'forumContents.txt'
+
 
 server.listen(8888);
 console.log('server is now running...');

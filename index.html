@@ -1,8 +1,24 @@
-<html !DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>Random Lyric Generator</title>
+    <meta charset="UTF-8">
+    <title>Client side form</title>
 </head>
 <body>
+    <textarea id="box" rows="12" cols="50"> </textarea>
+    <form method="POST" action="/">
+        <input type="text" name="comment" style="width: 350px;"><br>
+        <input type="text" name="name">
+        <input type="submit" value="Submit">
+    </form>
+
+
+    //this script can't print the contents of the text file
+    <script>
+        var fs = require('fs');
+        var forumText = fs.readFile('forumContents.txt').toString();
+        document.getElementById("box").innerHTML= forumText;
+    </script>
 
 </body>
 </html>
