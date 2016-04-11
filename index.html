@@ -5,20 +5,19 @@
     <title>Client side form</title>
 </head>
 <body>
-    <textarea id="box" rows="12" cols="50"> </textarea>
-    <form method="POST" action="/">
-        <input type="text" name="comment" style="width: 350px;"><br>
-        <input type="text" name="name">
-        <input type="submit" value="Submit">
-    </form>
 
+    <textarea id=forumBox> </textarea>
 
-    //this script can't print the contents of the text file
-    <script>
-        var fs = require('fs');
-        var forumText = fs.readFile('forumContents.txt').toString();
-        document.getElementById("box").innerHTML= forumText;
+            <form method="POST" action="/">
+                <input type="text" name="comment" style="width: 350px;"><br>
+                <input type="text" name="name">
+                <input type="submit" value="Submit">
+            </form>
+
+    <script src="app.js">
+        document.getElementById("forumBox").innerHTML = contents;
     </script>
+
 
 </body>
 </html>

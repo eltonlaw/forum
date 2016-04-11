@@ -38,9 +38,12 @@ function onSubmit(request, response) {
         fs.appendFile('forumContents.txt', post.name + " : " + post.comment + '\n', 'UTF-8', {'flags':'a+'});
         console.log(post.name);
         console.log(post.comment);
-            response.end();
+            response.writeHead(200, {"Content-Type": "text/html"});
+            fs.createReadStream("./index.html").pipe(response);
         });
     }
+
+//function to read the updated file and send it back to index.html
 
 
 //Figure out how to make the front end constantly display the contents of 'forumContents.txt'
