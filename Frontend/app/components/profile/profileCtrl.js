@@ -1,4 +1,4 @@
-app.controller('Users', ['$scope', '$http','$log', function($scope, $http, $log) {
+app.controller('profileCtrl', ['$scope', '$http','$log', function($scope, $http, $log) {
 	
 
 	var onLoginSuccess = function(response) {

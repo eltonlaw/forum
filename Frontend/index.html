@@ -15,23 +15,18 @@
 	</head>
 <body>
 
-<navbar></navbar>
 <!-- START CONTENT -->
-
-	
-
-
-
+<navbar></navbar>
+<div ng-view></div>
 <!-- END CONTENT -->
+
 	<script type="text/javascript" src="assets/js/script.js"></script>
 	<!-- Module -->
 	<script type="text/javascript" src="app/app.module.js"></script>
+	<!-- Controllers -->
+	<script type="text/javascript" src="app/components/forum/forumController.js"></script>
 	<!-- Routing -->
 	<script type="text/javascript" src="app/app.route.js"></script>
-
-	<!-- Controllers -->
-	<script type="text/javascript" src="app/components/userProfile/userProfileController.js"></script>
-
 	<!-- Navbar Directive -->
 	<script type="text/javascript" src="app/shared/navbar/navbarDirective.js"></script>
 

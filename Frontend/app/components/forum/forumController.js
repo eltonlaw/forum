@@ -1,4 +1,4 @@
-app.controller('Forum', ['$scope', function($scope) {
+app.controller('forumCtrl', ['$scope', function($scope) {
 	$scope.section1 = [
 	{
 		name:"Topic 1",
