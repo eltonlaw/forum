@@ -1,0 +1,28 @@
+<div class="container" ng-controller="registerCtrl">
+
+<form id="register" ng-submit="">
+	<h1 class="text-center">Sign Up!</h1><br>
+
+<!-- Username -->
+	<label for="username">Username <small>(Please make it between 4-12 letters/numbers, no special characters)</small>:</label>
+	<span class="glyphicon glyphicon-ok" ng-show="usernameChecked"></span>
+	<br>
+	<em>{{availabilityMsg}}</em>
+	<input type="text" ng-model="newUsername" ng-change="checkAvailability(newUsername)"/>
+
+<!-- Password -->
+	<label for="">Password:</label>
+	<input type="text"/>
+	<label for="">Retype your password:</label>
+	<input type="text"/>
+
+<!-- Email -->
+	<label for="email">Email:</label>
+	<input type="text"/>
+	<button class="btn btn-primary">Submit</button>
+</form>
+
+</div>
+
+<script type="text/javascript" src="registerService.js"></script>
+<!-- Link to backend -->

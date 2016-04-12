@@ -1,0 +1,18 @@
+/* registerView.html */
+#register {
+	width:70%;
+	margin: auto;
+}
+#register input {
+	width:100%;
+}
+#register .btn-default{
+	font-size: 10px;
+	padding:0.2em;
+	font-family:Arial;
+	margin-bottom:0.5em;
+}
+#register .btn-primary {
+	width:80%;
+	margin: 1em 10%;
+}
