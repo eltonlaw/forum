@@ -1,6 +1,6 @@
 <div class="container" ng-controller="registerCtrl">
 
-<form id="register" ng-submit="">
+<form id="register" ng-submit="submitNew()">
 	<h1 class="text-center">Sign Up!</h1><br>
 
 <!-- Username -->
@@ -8,17 +8,21 @@
 	<span class="glyphicon glyphicon-ok" ng-show="usernameChecked"></span>
 	<br>
 	<em>{{availabilityMsg}}</em>
-	<input type="text" ng-model="newUsername" ng-change="checkAvailability(newUsername)"/>
+	<input type="text" ng-model="newUsername" ng-change="checkName(newUsername)"/>
 
 <!-- Password -->
-	<label for="">Password:</label>
-	<input type="text"/>
-	<label for="">Retype your password:</label>
-	<input type="text"/>
+	<label for="password">Password:</label>
+	<span class="glyphicon glyphicon-ok" ng-show="passwordChecked"></span>
+	<br>
+	<div>
+	<input type="{{showPassword ? 'text' : 'password'}}" ng-model="newUserPw" ng-change="checkPw(newUserPw)">
+	<span id="pwclear"ng-click="changePwType()">{{showhide}}</span>
+	</div>
 
 <!-- Email -->
 	<label for="email">Email:</label>
-	<input type="text"/>
+	<span class="glyphicon glyphicon-ok" ng-show="emailChecked"></span>
+	<input type="text" ng-model="newUserEmail"/ ng-change="checkEmail(newUserEmail)">
 	<button class="btn btn-primary">Submit</button>
 </form>
 
