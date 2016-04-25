@@ -26,8 +26,12 @@ app.config(function($routeProvider) {
 			controller:"registerCtrl"
 			})
 		.when("/profile", {
+			templateUrl:"app/components/profile/profile.html",
+			controller:"profileCtrl"
+		})
+		.when("/login", {
 			templateUrl:"app/components/login/loginView.html",
-			controller:"loginCtrl"
+			controller:"profileCtrl"
 		})
 		.when("/dashboard", {
 			templateUrl:"app/components/dashboard/dashboardView.html",

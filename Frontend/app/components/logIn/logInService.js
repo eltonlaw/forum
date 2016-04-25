@@ -1,4 +1,6 @@
-app.factory('database', function($http) {
+app.factory('logIn', function($http) {
+
+
 
 	var verify = function(username,password) {
 		
