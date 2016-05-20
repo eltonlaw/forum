@@ -1,41 +1,58 @@
-app.config(function($routeProvider) {
+(function() {
+'use strict';
+
+angular
+	.module('app')
+	.config(function($routeProvider) {
+	
 	$routeProvider
 		.when("/", {
 			templateUrl:"app/components/home/homeView.html",
-			controller:"homeCtrl"
+			controller:"HomeCtrl",
+			controllerAs:'vm'
 		})
 		.when("/forum", {
 			templateUrl:"app/components/forum/forumView.html",
-			controller:"forumCtrl"
+			controller:"ForumCtrl",
+			controllerAs:'vm'
 		})
 			.when("/forum/topic1", {
-			templateUrl:"app/components/forum/topicView.html",
-			controller:"topicCtrl"
+				templateUrl:"app/components/forum/topicView.html",
+				controller:"TopicCtrl",
+				controllerAs:'vm'
 			})
 
 		.when("/profile", {
 			templateUrl:"app/components/profile/profileView.html",
-			controller:"profileCtrl"
+			controller:"ProfileCtrl",
+			controllerAs:'vm'
 		})
 		.when("/register", {
 			templateUrl:"app/components/register/registerView.html",
-			controller:"registerCtrl"
+			controller:"RegisterCtrl",
+			controllerAs:'vm'
 		})
 			.when("/welcome", {
-			templateUrl:"app/components/register/welcomeView.html",
-			controller:"registerCtrl"
+				templateUrl:"app/components/register/welcomeView.html",
+				controller:"RegisterCtrl",
+				controllerAs:'vm'
 			})
 		.when("/profile", {
 			templateUrl:"app/components/profile/profile.html",
-			controller:"profileCtrl"
+			controller:"ProfileCtrl",
+			controllerAs:'vm'
 		})
 		.when("/login", {
 			templateUrl:"app/components/login/loginView.html",
-			controller:"profileCtrl"
+			controller:"ProfileCtrl",
+			controllerAs:'vm'
 		})
 		.when("/dashboard", {
 			templateUrl:"app/components/dashboard/dashboardView.html",
-			controller:"dashboardCtrl"
+			controller:"DashboardCtrl",
+			controllerAs:'vm'
 		})
 		.otherwise({redirectTo:"/"})
 });
+
+})();

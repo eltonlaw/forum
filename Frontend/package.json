@@ -1,0 +1,31 @@
+{
+  "name": "forum",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eltonlaw/forum.git"
+  },
+  "author": "eltonlaw",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eltonlaw/forum/issues"
+  },
+  "homepage": "https://github.com/eltonlaw/forum#readme",
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "jasmine": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-jasmine": "^1.0.2",
+    "karma-mocha": "^1.0.1",
+    "karma-mocha-reporter": "^2.0.3",
+    "mocha": "^2.4.5"
+  }
+}

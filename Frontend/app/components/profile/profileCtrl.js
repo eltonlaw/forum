@@ -1,18 +1,27 @@
-app.controller('profileCtrl', ['$scope', '$http','$log', function($scope, $http, $log) {
-	
-//LOGIN 
-	var onLoginSuccess = function(response) {
-		$scope.user = response.data
-	}
+angular
+	.module('app.profile')
+	.controller("ProfileCtrl", ProfileCtrl);
 
-	
- 
-	var loginSubmit = function() {
+	ProfileCtrl.$inject = ['$http'];
+
+function ProfileCtrl($http) {
+	var vm =this;
+	vm.onLoginSuccess = onLoginSuccess;
+	vm.loginSubmit = loginSubmit;
+	//////////////////
+
+	function onLoginSuccess(response) {
+		vm.user = response.data
+	};
+
+	function loginSubmit() {
 		if (2) {
-			$scope.loggedIn = true;
+			vm.loggedIn = true;
 		} else {
-			$scope.error = "Your password/username is incorrect"
-			$scope.loggedIn = false;
+			vm.error = "Your password/username is incorrect"
+			vm.loggedIn = false;
 		}
-	}
-}]);
+	};
+
+
+};

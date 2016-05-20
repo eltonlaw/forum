@@ -1,32 +1,32 @@
-<div class="container" ng-controller="registerCtrl">
+<div class="container">
 
 <form id="register" ng-submit="submitNew()">
 	<h1 class="text-center">Sign Up!</h1><br>
 
 <!-- Username -->
 	<label for="username">Username <small>(Please make it between 4-12 letters/numbers, no special characters)</small>:</label>
-	<span class="glyphicon glyphicon-ok" ng-show="usernameChecked"></span>
+	<span class="glyphicon glyphicon-ok" ng-show="vm.nameOk"></span>
 	<br>
-	<em>{{availabilityMsg}}</em>
-	<input type="text" ng-model="newUsername" ng-change="checkName(newUsername)"/>
+	<em>{{vm.nameMsg}}</em>
+	<input type="text" ng-model="newUserName" ng-change="vm.checkName(newUserName)"/>
 
 <!-- Password -->
-	<label for="password">Password:</label>
-	<span class="glyphicon glyphicon-ok" ng-show="passwordChecked"></span>
+	<label for="password">Password <small>(For security reasons please make it greater than 4 characters)</small>:</label>
+	<span class="glyphicon glyphicon-ok" ng-show="vm.pwOk"></span>
 	<br>
 	<div>
-	<input type="{{showPassword ? 'text' : 'password'}}" ng-model="newUserPw" ng-change="checkPw(newUserPw)">
+	<em>{{vm.pwMsg}}</em>
+	<input type="{{showPassword ? 'text' : 'password'}}" ng-model="newUserPw" ng-change="vm.checkPassword(newUserPw)">
 	<span id="pwclear"ng-click="changePwType()">{{showhide}}</span>
 	</div>
 
 <!-- Email -->
 	<label for="email">Email:</label>
-	<span class="glyphicon glyphicon-ok" ng-show="emailChecked"></span>
-	<input type="text" ng-model="newUserEmail"/ ng-change="checkEmail(newUserEmail)">
-	<button class="btn btn-primary">Submit</button>
+	<span class="glyphicon glyphicon-ok" ng-show="vm.emailOk"></span>
+	<em>{{vm.emailMsg}}</em>
+	<input type="text" ng-model="newUserEmail"/ ng-change="vm.checkEmail(newUserEmail)">
+<!-- Submit Button -->
+	<button ng-click="vm.submitNew(newUserName,newUserPw,newUserEmail)"class="btn btn-primary">Submit</button>
 </form>
 
 </div>
-
-<script type="text/javascript" src="registerService.js"></script>
-<!-- Link to backend -->

@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="en" ng-app="forum">
+<html lang="en" ng-app="app">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,24 +22,48 @@
 </footer>
 <!-- END CONTENT -->
 
-
-
-	<script type="text/javascript" src="assets/js/script.js"></script>
-	<!-- Module -->
+	<!-- App Module -->
 	<script type="text/javascript" src="app/app.module.js"></script>
-	<!-- Controllers -->
-	<script type="text/javascript" src="app/components/forum/forumCtrl.js"></script>
-	<script type="text/javascript" src="app/components/register/registerCtrl.js"></script>
-	<script type="text/javascript" src="app/components/login/loginCtrl.js"></script>
-	<script type="text/javascript" src="app/components/profile/profileCtrl.js"></script>
-	<script type="text/javascript" src="app/components/dashboard/dashboardCtrl.js"></script>
+
+	<!-- Core -->
+	<script type="text/javascript" src="app/components/core/app.core.js"></script>
+	<script type="text/javascript" src="app/components/core/httpService.js"></script>
+	
+	<!-- Home -->
+	<script type="text/javascript" src="app/components/home/app.home.js"></script>
 	<script type="text/javascript" src="app/components/home/homeCtrl.js"></script>
-	<!-- Services -->
-	<script type="text/javascript" src="app/components/register/authenticationService.js"></script>
+
+	<!-- Forum -->
+	<script type="text/javascript" src="app/components/forum/app.forum.js"></script>
+	<script type="text/javascript" src="app/components/forum/forumCtrl.js"></script>
+
+	<!-- Register -->
+	<script type="text/javascript" src="app/components/register/app.register.js"></script>
+	<script type="text/javascript" src="app/components/register/registerCtrl.js"></script>
+	<script type="text/javascript" src="app/components/register/registerUser.js"></script>
+
+	<!-- Login -->
+	<script type="text/javascript" src="app/components/login/app.login.js"></script>
+	<script type="text/javascript" src="app/components/login/loginCtrl.js"></script>
+	<script type="text/javascript" src="app/components/login/authenticationService.js"></script>
+	<script type="text/javascript" src="app/components/login/loginService.js"></script>
+
+	<!-- Profile -->
+	<script type="text/javascript" src="app/components/profile/app.profile.js"></script>
+	<script type="text/javascript" src="app/components/profile/profileCtrl.js"></script>
+
+
+	<!-- Dashboard -->
+	<script type="text/javascript" src="app/components/dashboard/app.dashboard.js"></script>
+	<script type="text/javascript" src="app/components/dashboard/dashboardCtrl.js"></script>
+
+	<!-- Navbar-->
+	<script type="text/javascript" src="app/shared/navbar/navbarDirective.js"></script>
+	<script type="text/javascript" src="app/shared/navbar/navbarCtrl.js"></script>
+
 	<!-- Routing -->
 	<script type="text/javascript" src="app/app.route.js"></script>
-	<!-- Navbar Directive -->
-	<script type="text/javascript" src="app/shared/navbar/navbarDirective.js"></script>
+
 
 </body>
 </html>
