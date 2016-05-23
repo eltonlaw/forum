@@ -22,6 +22,7 @@ module.exports = function(config) {
       'app/app.module.js',
       'app/app.route.js',
       'app/**/**/*.js',
+      'test/mock/*.js',
       'test/**/**/*.js'
     ],
 

@@ -16,8 +16,8 @@ angular
 			controller:"ForumCtrl",
 			controllerAs:'vm'
 		})
-			.when("/forum/topic1", {
-				templateUrl:"app/components/forum/topicView.html",
+			.when("/forum/section1/topic1", {
+				templateUrl:"app/shared/topic/topicView.html",
 				controller:"TopicCtrl",
 				controllerAs:'vm'
 			})

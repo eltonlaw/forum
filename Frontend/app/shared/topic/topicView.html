@@ -1,0 +1,30 @@
+<select name="filter" ng-model="vm.categoryOrder">
+		<option value="">All Categories</option>
+		<option value="Announcements">Announcments</option>
+		<option value="General Discussion">General Discussion</option>
+		<option value="Technical Support">Technical Support</option>
+		<option value="Random">Random</option>
+</select>
+
+<button>Latest</button>
+<button>Trending Now</button>
+<button>Hall of Fame</button>
+<button>Categories</button>
+
+<table>
+	<tr>
+		<th ng-click="vm.sortByTh('name')">Post</th>
+		<th ng-click="vm.sortByTh('category')">Category</th>
+		<th ng-click="vm.sortByTh('replies')">Replies</th>
+		<th ng-click="vm.sortByTh('views')">Views</th>
+		<th ng-click="vm.sortByTh('activity')">Latest Activity</th>
+	</tr>
+	<tr ng-repeat="post in vm.posts | orderBy:vm.sortOrder:vm.sortReverse | filter:vm.categoryOrder">
+		<td>{{post.name}}</td>
+		<td>{{post.category}}</td>
+		<td>{{post.replies}}</td>
+		<td>{{post.views}}</td>
+		<td>{{post.activity}}</td>
+	</tr>
+
+</table>

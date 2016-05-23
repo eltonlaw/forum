@@ -7,6 +7,7 @@ angular.module('app', [
 	// CUSTOM
 	"app.core",
 	"app.forum",
+	"app.topic",
 	"app.profile",
 	"app.home",
 	"app.register",

@@ -4,9 +4,10 @@
 		.module('app.register')
 		.factory('registerUser', registerUser);
 
-function registerUser() {
+registerUser.$inject = ['$http'];
+
+function registerUser($http) {
 		var service = {
-			checkRegistration:checkRegistration,
 			checkName:checkName,
 			checkPassword:checkPassword,
 			checkEmail:checkEmail,
@@ -14,21 +15,6 @@ function registerUser() {
 		};
 		return service;
 	/////////////////////////////////
-	function checkRegistration(name,password,email) {	
-		// Three tests for username, pw and email
-			var nameTest = checkName(name);
-			var passwordTest = checkPassword(password);
-			var emailTest = checkEmail(email);
-
-		// Creates new user and returns true if all tests are good
-		if (nameOk && passwordOk && emailOk) {
-			createUser(name,password,email);
-			return true
-		} else {
-			// Need to elaborate, explain what went wrong
-			return false
-		}
-	};
 
 	function checkName(name) {
 		var x = name.toString();
@@ -101,12 +87,27 @@ function registerUser() {
 
 
 	function createUser(name, password, email) {
-		var newUser = {
+		var newUserData = {
 			username: name,
 			password: password,
 			email:email
-		}
-		return newUser;
+		};
+		
+		console.log('created new User ' + newUserData.username)
+		$http({
+			method:'POST',
+			url:'~/test/mock/users.json',
+			headers: {
+		        'Content-Type': 'application/json', /*or whatever type is relevant */
+		        'Accept': 'application/json' /* ditto */
+		    },
+			data:newUserData})
+		.then(function(data) {
+			var userDb = JSON.parse(newUserData);
+			userDb.push(newUserData);
+		});
+
+		return newUserData;
 		// Push new user object to node API
 	};
 };

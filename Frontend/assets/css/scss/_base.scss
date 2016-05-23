@@ -1,2 +1,12 @@
 // Colors
 $default-color:#eee;
+
+//Common Classes
+.remove-link-style,
+.remove-link-style:link,
+.remove-link-style:visited,
+.remove-link-style:hover,
+.remove-link-style:active {
+	color:black;
+	text-decoration:none;	
+}
