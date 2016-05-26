@@ -6,6 +6,9 @@
   color: black;
   text-decoration: none; }
 
+.cursor-pointer {
+  cursor: pointer; }
+
 #register {
   width: 70%;
   margin: auto; }

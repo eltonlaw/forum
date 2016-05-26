@@ -1,0 +1,13 @@
+<div class="container">
+	<h1>{{vm.title}}</h1>
+	<div ng-repeat="post in vm.posts" class="panel panel-default row">
+		<div class="col-md-2">
+			{{post.poster.image}} <br>
+			{{post.poster.name}} <br>
+			{{post.poster.dateJoined | date}}
+		</div>
+		<div class="col-md-10">
+			<p>{{post.content}}</p>
+		</div>
+	</div>
+</div>

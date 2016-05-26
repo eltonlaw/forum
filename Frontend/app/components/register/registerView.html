@@ -16,8 +16,8 @@
 	<br>
 	<div>
 	<em>{{vm.pwMsg}}</em>
-	<input type="{{showPassword ? 'text' : 'password'}}" ng-model="newUserPw" ng-change="vm.checkPassword(newUserPw)">
-	<span id="pwclear"ng-click="changePwType()">{{showhide}}</span>
+	<input type="{{vm.showPassword ? 'text' : 'password'}}" ng-model="newUserPw" ng-change="vm.checkPassword(newUserPw)">
+	<span id="pwclear"ng-click="vm.changePwType()">{{vm.showhide}}</span>
 	</div>
 
 <!-- Email -->

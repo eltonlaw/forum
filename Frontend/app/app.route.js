@@ -21,6 +21,11 @@ angular
 				controller:"TopicCtrl",
 				controllerAs:'vm'
 			})
+			.when("/forum/section1/topic1/1", {
+				templateUrl:"app/shared/discussion/discussionView.html",
+				controller:"DiscussionCtrl",
+				controllerAs:'vm'
+			})
 
 		.when("/profile", {
 			templateUrl:"app/components/profile/profileView.html",

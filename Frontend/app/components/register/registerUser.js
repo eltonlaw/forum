@@ -53,6 +53,7 @@ function registerUser($http) {
 				msg:"Awesome, that usernames available"
 			}
 		}
+		
 	};
 
 	function checkPassword(password) {
@@ -94,18 +95,6 @@ function registerUser($http) {
 		};
 		
 		console.log('created new User ' + newUserData.username)
-		$http({
-			method:'POST',
-			url:'~/test/mock/users.json',
-			headers: {
-		        'Content-Type': 'application/json', /*or whatever type is relevant */
-		        'Accept': 'application/json' /* ditto */
-		    },
-			data:newUserData})
-		.then(function(data) {
-			var userDb = JSON.parse(newUserData);
-			userDb.push(newUserData);
-		});
 
 		return newUserData;
 		// Push new user object to node API
