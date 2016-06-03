@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Stylesheets -->
+		<!-- Bootstrap -->
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+		<!-- style.css -->
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+<!-- Angular -->
+		<script data-require="angularjs@1.5.3" data-semver="1.5.3" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular.js"></script>
+<!-- Angular Route -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular-route.js"></script>
+	</head>
+<body>
+
+<!-- START CONTENT -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#/">FORUM</a>
+    </div>
+    <ul class="nav navbar-nav navbar-left">
+      <li><a href="#/register">Register</a></li>
+      <li ng-controller="ProfileCtrl"><a ng-href="{{loggedIn ? '#/profile' : '#/login'}}">{{loggedIn ? 'Profile' : 'Log In'}}</a></li>
+      <li><a href="#/profile"></a></li>
+      <li><a href="#/forum">Forum</a></li>
+      <li><a href="#/dashboard">Dashboard</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a>sd</a></li>
+      <li>
+      <form class="navbar-form" role="search">
+	        <div class="form-group">
+	        	<input type="text" class="form-control" placeholder="Search forum">
+	        </div>
+	        <button type="submit" class="btn btn-default">Search</button>
+      </form>
+      </li>
+      </ul>
+  </div><!-- /.container-fluid -->
+</nav>
+<div ng-view></div>
+<footer>
+</footer>
+<!-- END CONTENT -->
+<!-- main module -->
+	<script src="javascript/app.module.js"></script>
+<!-- core -->
+	<script src="javascript/core/app.core.js"></script>
+	<script src="javascript/core/httpService.js"></script>
+<!-- forum -->
+	<script src="javascript/forum/app.forum.js"></script>
+	<script src="javascript/forum/forum.ctrl.js"></script>
+<!-- home -->
+	<script src="javascript/home/app.home.js"></script>
+	<script src="javascript/home/home.ctrl.js"></script>
+<!-- logIn -->
+	<script src="javascript/logIn/app.login.js"></script>
+	<script src="javascript/logIn/logInCtrl.js"></script>
+	<script src="javascript/logIn/logInService.js"></script>
+	<script src="javascript/logIn/authenticationService.js"></script>
+<!-- profile -->
+	<script src="javascript/profile/app.profile.js"></script>
+	<script src="javascript/profile/profile.ctrl.js"></script>
+<!-- register -->
+	<script src="javascript/register/app.register.js"></script>
+	<script src="javascript/register/register.ctrl.js"></script>
+	<script src="javascript/register/registerUser.js"></script>
+<!-- topic -->
+	<script src="javascript/topic/app.topic.js"></script>
+	<script src="javascript/topic/topic.ctrl.js"></script>
+<!-- discussion -->
+	<script src="javascript/discussion/app.discussion.js"></script>
+	<script src="javascript/discussion/discussion.ctrl.js"></script>
+<!-- Routing -->
+	<script src="javascript/app.route.js"></script>
+
+</body>
+</html>
