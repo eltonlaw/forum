@@ -8,50 +8,45 @@ registerUser.$inject = ['$http'];
 
 function registerUser($http) {
 		var service = {
+			createUser:createUser,
 			checkName:checkName,
 			checkPassword:checkPassword,
-			checkEmail:checkEmail,
-			createUser:createUser
+			checkEmail:checkEmail
 		};
 		return service;
 	/////////////////////////////////
-
 	function checkName(name) {
 		var x = name.toString();
 		var usernames = "d0nkrs";
 		var isNotValid = function(str) {
 			return /[-!$%@^&*()_+|~=`{}\[\]:";'<>?,.\/]/.test(str);
 		}
-		// If any of these fail, return a object with a checked property and either a specific error message or a success message
+		// If any of these fail, return a object with a valid property and either a specific error message or a success message
 		if(x === "") {
 			return {
-				checked: false,
+				valid: false,
 				msg: "Please input a username"
-			}
-		} 
-		else if(x.length < 4 || x.length > 12) {
+			};
+		} else if(x.length < 4 || x.length > 12) {
 			return {
-				checked: false,
+				valid: false,
 				msg:"Username must be between 4-12 characters"
-			}
-		}
-		else if(isNotValid(x)) {
+			};
+		} else if(isNotValid(x)) {
 			return {
-				checked:false,
+				valid:false,
 				msg: "No special characters"
-			}
-		}
-		else if (x == usernames) {
+			};
+		} else if (x == usernames) {
 			return {
-				checked:false,
+				valid:false,
 				msg: "That username has already been taken"
-			}
-		} 
-		else {
+			};
+		} else {
 			return {
-				checked:true,
+				valid:true,
 				msg:"Awesome, that usernames available"
-			}
+			};
 		}
 		
 	};
@@ -60,45 +55,55 @@ function registerUser($http) {
 		var x = password.toString();
 		if (x.length < 4) {
 			return {
-				checked:false,
+				valid:false,
 				msg:"Password must be greater than 4 characters"
 			}
 		} else {
 			return {
-				checked:true,
+				valid:true,
 				msg:"Great password"
 			}
 		}
 	};
 
 // Need to add a test here to check if the email is already registed in the database
+	function getEmailList() {
+		$http.get("/api/users").then(function(response){
+			var emailList = [];
+			for(var i=0;i<response.data.length;i++) {
+				 emailList.push(response.data[i].email);
+			};
+		});
+	};
 	function checkEmail(email) {
+		console.log(emailList);
 		if (email.toString().indexOf("@") == -1) {
 			return {
-				checked:false,
+				valid:false,
 				msg:"That's not an email!"
-			}
+			};
+		} else if(false/*emailList.indexOf(email)*/){
+			return {
+				valid: false,
+				msg:"That email is already in use"
+			};
 		} else {
 			return {
-				checked: true,
+				valid: true,
 				msg:"That email checks out!"
-			}
+			};
 		}
 	};
 
-
 	function createUser(name, password, email) {
 		var newUserData = {
-			username: name,
+			name: name,
 			password: password,
 			email:email
 		};
-		
-		console.log('created new User ' + newUserData.username)
-
-		return newUserData;
-		// Push new user object to node API
+		$http.post("/api/users",newUserData);
 	};
 };
+
 
 })();

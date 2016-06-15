@@ -1,32 +1,59 @@
 <div class="container">
 
-<form id="register" ng-submit="submitNew()">
+<form id="register">
 	<h1 class="text-center">Sign Up!</h1><br>
 
 <!-- Username -->
 	<label for="username">Username <small>(Please make it between 4-12 letters/numbers, no special characters)</small>:</label>
-	<span class="glyphicon glyphicon-ok" ng-show="vm.nameOk"></span>
+	<span class="glyphicon glyphicon-ok" ng-show="vm.nameValid"></span>
 	<br>
 	<em>{{vm.nameMsg}}</em>
-	<input type="text" ng-model="newUserName" ng-change="vm.checkName(newUserName)"/>
+	<input type="text" ng-model="vm.newUserName" ng-change="vm.checkName(vm.newUserName)"/>
 
 <!-- Password -->
 	<label for="password">Password <small>(For security reasons please make it greater than 4 characters)</small>:</label>
-	<span class="glyphicon glyphicon-ok" ng-show="vm.pwOk"></span>
+	<span class="glyphicon glyphicon-ok" ng-show="vm.pwValid"></span>
 	<br>
 	<div>
 	<em>{{vm.pwMsg}}</em>
-	<input type="{{vm.showPassword ? 'text' : 'password'}}" ng-model="newUserPw" ng-change="vm.checkPassword(newUserPw)">
+	<input type="{{vm.showPassword ? 'text' : 'password'}}" ng-model="vm.newUserPw" ng-change="vm.checkPassword(vm.newUserPw)">
 	<span id="pwclear"ng-click="vm.changePwType()">{{vm.showhide}}</span>
 	</div>
 
 <!-- Email -->
 	<label for="email">Email:</label>
-	<span class="glyphicon glyphicon-ok" ng-show="vm.emailOk"></span>
+	<span class="glyphicon glyphicon-ok" ng-show="vm.emailValid"></span>
 	<em>{{vm.emailMsg}}</em>
-	<input type="text" ng-model="newUserEmail"/ ng-change="vm.checkEmail(newUserEmail)">
+	<input type="text" ng-model="vm.newUserEmail"/ ng-change="vm.checkEmail(vm.newUserEmail)">
 <!-- Submit Button -->
-	<button ng-click="vm.submitNew(newUserName,newUserPw,newUserEmail)"class="btn btn-primary">Submit</button>
+	<button ng-click="vm.createUser()"class="btn btn-primary">Submit</button>
 </form>
+	<h3>All Users</h3>
+	<div>
+		<table class="table">
+			<tr>
+				<th>Username</th>
+				<th>Password</th>
+				<th>Email</th>
+				<th>Date Joined</th>
+				<th>Comments</th>
+				<th>Reputation</th>
+			</tr>
+			<tr ng-repeat="user in vm.userlist">
+				<td>{{user.name}}</td>
+				<td>{{user.password}}</td>
+				<td>{{user.email}}</td>
+				<td>{{user.created | date}}</td>
+				<td>{{user.comments}}</td>
+				<td>{{user.reputation}}</td>
+				<td>
+					{{user | json}}
+				</td>
+				<td>
+					<button ng-click="vm.deleteUser(user._id)"class="btn btn-danger pull-right">&times</button>
+				</td>
+			</tr>
+		</table>
+	</div>
 
 </div>
