@@ -12,7 +12,7 @@ angular.module('app', [
 	"app.profile",
 	"app.home",
 	"app.register",
-	"app.login",
+	"app.login"
 ]);
 
 })();

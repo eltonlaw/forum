@@ -31,20 +31,23 @@ function RegisterCtrl ($window,registerUser,$http) {
 	///////////////////
 
 	function checkPassword(input) {
-		vm.pwValid = registerUser.checkPassword(input).valid;
-		vm.pwMsg = registerUser.checkPassword(input).msg;
+		var test = registerUser.checkPassword(input)
+			vm.pwValid = test.valid;
+			vm.pwMsg = test.msg;
 	};
 	function checkEmail(input) {
-		vm.emailValid = registerUser.checkEmail(input).valid;
-		vm.emailMsg = registerUser.checkEmail(input).msg;
+		var test= registerUser.checkEmail(input);
+			vm.emailValid = test.valid;
+			vm.emailMsg = test.msg;
 	};
 	function checkName(input) {
-		vm.nameValid = registerUser.checkName(input).valid;
-		vm.nameMsg = registerUser.checkName(input).msg;
+		var test = registerUser.checkName(input);
+			vm.nameValid = test.valid;
+			vm.nameMsg = test.msg;
 	};
 	function createUser	() {
 		if (vm.nameValid && vm.emailValid && vm.pwValid) {
-			registerUser.createUser(vm.newUserName,vm.newUserPw,newUserEmail);
+			registerUser.createUser(vm.newUserName,vm.newUserPw,vm.newUserEmail);
 			// $window.location.href="#/welcome"
 		} else {
 			alert('One or more fields are incorrectly filled out');
@@ -64,16 +67,7 @@ function RegisterCtrl ($window,registerUser,$http) {
 			vm.userlist = response.data;
 		});
 	};
-	function getEmailList() {
-		$http.get("/api/users").then(function(response){
-			vm.emailList = [];
-			for(var i=0;i<response.data.length;i++) {
-				 vm.emailList.push(response.data[i].email);
-			};
-		});
-	};
 };
-
 })();
 
 

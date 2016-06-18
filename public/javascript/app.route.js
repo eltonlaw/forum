@@ -49,7 +49,7 @@ angular
 		})
 		.when("/login", {
 			templateUrl:"../views/login.view.html",
-			controller:"ProfileCtrl",
+			controller:"LoginCtrl",
 			controllerAs:'vm'
 		})
 		.when("/dashboard", {

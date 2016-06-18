@@ -3,14 +3,18 @@
 
 angular
 	.module('app.login')
-	.controller("LogInCtrl", LogInCtrl);
+	.controller("LoginCtrl", LoginCtrl);
 
-	// LogInCtrl.$inject = [];
+	LoginCtrl.$inject = ["AuthenticationService"];
 
-function LogInCtrl() {
+function LoginCtrl(AuthenticationService) {
 	var vm =this;
+	vm.login = login;
 	//////////////////
-
+	function login() { 
+		console.log("Logging in name: "+vm.loginName+" password: "+vm.loginPw);
+		AuthenticationService.login(vm.loginName,vm.loginPw);
+	}
 };
 
 })();

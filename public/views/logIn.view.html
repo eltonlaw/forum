@@ -2,12 +2,12 @@
 	<h2 class="text-center">Log In</h2>
 
 	<form ng-submit="loginSubmit()">
-		<label>Login:</label><br>
-		<input type="text" ng-model="loginUser"><br>
-		<label ng-model="loginPw">Password:</label><br>
-		<input type="text">
+		<label>Username:</label><br>
+		<input type="text" ng-model="vm.loginName"><br>
+		<label>Password:</label><br>
+		<input type="text" ng-model="vm.loginPw">
 		<a href="#/register"><small>Not Registered?</small></a>
 		<br>
-		<button class="btn btn-primary">Submit</button>
+		<button class="btn btn-primary" ng-click="vm.login()">Login</button>
 	</form>
 </div>
