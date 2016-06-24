@@ -17,20 +17,20 @@
 <body>
 
 <!-- START CONTENT -->
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" ng-controller="NavigationCtrl as vm">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#/">FORUM</a>
     </div>
     <ul class="nav navbar-nav navbar-left">
-      <li><a href="#/register">Register</a></li>
-      <li ng-controller="ProfileCtrl"><a ng-href="{{loggedIn ? '#/profile' : '#/login'}}">{{loggedIn ? 'Profile' : 'Log In'}}</a></li>
-      <li><a href="#/profile"></a></li>
+      <li ng-if="!vm.loggedIn"><a href="#/register">Register</a></li>
+      <li ng-if="!vm.loggedIn"><a ng-href="#/login">Log In</a></li>
+      <li ng-if="vm.loggedIn"><a href="#/profile">Profile</a></li>
       <li><a href="#/forum">Forum</a></li>
       <li><a href="#/dashboard">Dashboard</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a>sd</a></li>
+      <li ng-if="vm.loggedIn"><a ng-click="vm.logOut()" class="cursor-pointer">Log Out</a></li>
       <li>
       <form class="navbar-form" role="search">
 	        <div class="form-group">
@@ -43,7 +43,9 @@
   </div><!-- /.container-fluid -->
 </nav>
 <div ng-view></div>
-<footer>
+<footer ng-controller="FooterCtrl as vm">
+	<div ng-repeat="tweet in vm.tweets">
+	</div>
 </footer>
 <!-- END CONTENT -->
 <!-- main module -->
@@ -51,6 +53,10 @@
 <!-- core -->
 	<script src="javascript/core/app.core.js"></script>
 	<script src="javascript/core/httpService.js"></script>
+<!-- navigation -->
+	<script src="javascript/navigation/navigation.ctrl.js"></script>
+<!-- footer -->
+	<script src="javascript/footer/footer.ctrl.js"></script>
 <!-- forum -->
 	<script src="javascript/forum/app.forum.js"></script>
 	<script src="javascript/forum/forum.ctrl.js"></script>
@@ -76,6 +82,8 @@
 	<script src="javascript/discussion/discussion.ctrl.js"></script>
 <!-- Routing -->
 	<script src="javascript/app.route.js"></script>
+<!-- Run -->
+	<script src="javascript/app.run.js"></script>
 
 </body>
 </html>

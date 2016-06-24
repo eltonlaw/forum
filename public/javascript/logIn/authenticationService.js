@@ -1,47 +1,31 @@
 (function(){
-	'use strict';
-
+'use strict';
 	angular
 		.module('app')
 		.factory('AuthenticationService', AuthenticationService);
 
-	AuthenticationService.$inject = ['$http', '$rootScope','$cookies']
-	function AuthenticationService($http,$rootScope,$cookies){
+	AuthenticationService.$inject = ['$http', '$route','$window']
+	function AuthenticationService($http,$route,$window){
 		var service = {
 			login:login,
-			setCredentials:setCredentials,
-			clearCredentials:clearCredentials
+			setCredentials:setCredentials
 		};
 		return service;
 
 		function login(name, password) {
 			$http.post('/api/authenticate',{name:name,password:password})
 				.then(function(response){
-					localStorage.setItem("User-Data", JSON.stringify(response.data));
-					console.log("Logged in");
-					console.log(localStorage);
 					setCredentials(response.data);
-					console.log("$rootScope.globals");
-					console.log($rootScope.globals);
+					$window.location.href="#/profile";
 				},function(response){
 					console.log(response);
-				});
+				}
+			);
 		};
 		function setCredentials (data) {
-			$rootScope.globals = {
-				currentUser: {
-					username: data.name
-				}
-			}
-			$cookies.put('globals', $rootScope.globals)
-		};
-		function clearCredentials() {
-			$rootScope.globals = {};
-			$cookies.remove('globals')
+			sessionStorage.setItem("User-Data", JSON.stringify(data));
+			console.log("Logged in - SessionStorage:");
+			console.log(sessionStorage);
 		};
 	};
-
-
-
-
 })();

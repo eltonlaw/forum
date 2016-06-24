@@ -48,7 +48,7 @@ function RegisterCtrl ($window,registerUser,$http) {
 	function createUser	() {
 		if (vm.nameValid && vm.emailValid && vm.pwValid) {
 			registerUser.createUser(vm.newUserName,vm.newUserPw,vm.newUserEmail);
-			// $window.location.href="#/welcome"
+			$window.location.href="#/welcome"
 		} else {
 			alert('One or more fields are incorrectly filled out');
 		}

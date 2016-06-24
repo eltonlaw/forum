@@ -32,7 +32,7 @@ function deleteById(req,res) {
 };
 
 function authenticate(req,res) {
-	console.log("Trying to loging");
+	console.log("Trying to login");
 	User.find(req.body,function(err,results){
 		if(err){
 			console.log(err);

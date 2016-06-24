@@ -14,6 +14,13 @@ var app = express();
 app.set('views', path.join(__dirname,"/public/" ,'views'));
 app.set('view engine', 'hjs');
 
+// Add CORS header
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -32,8 +39,8 @@ app.get("/api/users/:id",usersController.getById);
 app.post("/api/users/:id",usersController.update);
 app.post("/api/users",usersController.post);
 app.delete("/api/users/:id",usersController.deleteById);
-
 app.post("/api/authenticate",usersController.authenticate);
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;
