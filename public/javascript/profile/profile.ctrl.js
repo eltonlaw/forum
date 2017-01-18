@@ -2,26 +2,11 @@ angular
 	.module('app.profile')
 	.controller("ProfileCtrl", ProfileCtrl);
 
-	ProfileCtrl.$inject = ['$http'];
+	ProfileCtrl.$inject = [];
 
-function ProfileCtrl($http) {
+function ProfileCtrl() {
 	var vm =this;
-	vm.onLoginSuccess = onLoginSuccess;
-	vm.loginSubmit = loginSubmit;
+	vm.user = JSON.parse(sessionStorage["User-Data"])[0];
 	//////////////////
-
-	function onLoginSuccess(response) {
-		vm.user = response.data
-	};
-
-	function loginSubmit() {
-		if (2) {
-			vm.loggedIn = true;
-		} else {
-			vm.error = "Your password/username is incorrect"
-			vm.loggedIn = false;
-		}
-	};
-
-
+	
 };

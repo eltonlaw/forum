@@ -32,13 +32,14 @@ function deleteById(req,res) {
 };
 
 function authenticate(req,res) {
-	console.log("Trying to login");
 	User.find(req.body,function(err,results){
 		if(err){
 			console.log(err);
 		}
 		if(results && results.length === 1){
-			res.json(req.body)
+			console.log(req);
+			console.log("^req");
+			res.json(results);
 		}
 	});
 };

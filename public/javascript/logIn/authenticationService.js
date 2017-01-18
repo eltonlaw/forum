@@ -7,8 +7,7 @@
 	AuthenticationService.$inject = ['$http', '$route','$window']
 	function AuthenticationService($http,$route,$window){
 		var service = {
-			login:login,
-			setCredentials:setCredentials
+			login:login
 		};
 		return service;
 
